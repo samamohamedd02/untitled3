@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/login.dart';
+import 'package:untitled3/log%20in/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +15,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         canvasColor: Colors.white,
+        textTheme:TextTheme(
+          headline1:TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+          headline2: TextStyle(fontSize: 20, color: Colors.black26)
+        ),
+
+
       ),
       home: const MyHomePage(),
     );

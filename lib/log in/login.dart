@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/log%20in/signup.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 310, 10),
+                margin: const EdgeInsets.fromLTRB(0, 10, 250, 10),
                 child: const Text(
                   "phone number",
                   style: TextStyle(fontSize: 20, color: Colors.black26),
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     keyboardType: TextInputType.phone,
                   )),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 350, 10),
+                margin: const EdgeInsets.fromLTRB(0, 10, 290, 10),
                 child: const Text(
                   "Password",
                   style: TextStyle(fontSize: 20, color: Colors.black26),
@@ -89,11 +90,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       backgroundColor:
                           MaterialStateProperty.all(Colors.deepOrange),
                     ),
-                    onPressed: () {},
-                    child: const Text(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                            return const Signup();
+                          }));
+                    },
+                    child: Text(
                       "sign in",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style:Theme.of(context).textTheme.headline1,
                     ),
                   )),
               Container(
@@ -181,6 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                           color: Colors.deepOrange),
+
                     ),
                   ],
                 ),
