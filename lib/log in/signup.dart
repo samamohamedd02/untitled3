@@ -197,7 +197,6 @@ class _SignupState extends State<Signup> {
       ),
     );
   }
-
   Container m1Container(BuildContext context, String type) {
     return Container(
       margin: const EdgeInsets.fromLTRB(20, 0, 250, 0),
