@@ -15,12 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         canvasColor: Colors.white,
-        textTheme:TextTheme(
-          headline1:TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
-          headline2: TextStyle(fontSize: 20, color: Colors.black26)
-        ),
-
-
+        textTheme: const TextTheme(
+            headline1: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+            headline2: TextStyle(fontSize: 20, color: Colors.black26)),
       ),
       home: const MyHomePage(),
     );

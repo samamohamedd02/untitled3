@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:untitled3/log%20in/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
 
@@ -56,7 +55,7 @@ class _SignupState extends State<Signup> {
             const SizedBox(
               height: 13,
             ),
-            Container(
+            SizedBox(
               width: 370,
               child: TextField(
                 obscureText: vasible,
@@ -100,7 +99,7 @@ class _SignupState extends State<Signup> {
               height: 30,
             ),
             Container(
-              child:const Text(
+              child: const Text(
                 "By signing up,You agree to our Privacy Policy and Tearms",
                 style: TextStyle(
                   fontSize: 18,
@@ -109,14 +108,23 @@ class _SignupState extends State<Signup> {
                 textAlign: TextAlign.center,
               ),
             ),
-          const SizedBox(
-            height: 40,
-          ),
-            Container(width: 300,
+            const SizedBox(
+              height: 40,
+            ),
+            Container(
+              width: 300,
               child: Row(
-                children:const [Expanded(child: Divider(color: Colors.black26)),
-                Text("  Or continue with  ",style: TextStyle(color: Colors.black26,fontSize: 15,fontWeight: FontWeight.bold),),
-                  Expanded(child: Divider(color: Colors.black26))],
+                children: const [
+                  Expanded(child: Divider(color: Colors.black26)),
+                  Text(
+                    "  Or continue with  ",
+                    style: TextStyle(
+                        color: Colors.black26,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(child: Divider(color: Colors.black26))
+                ],
               ),
             ),
             const SizedBox(
@@ -125,7 +133,6 @@ class _SignupState extends State<Signup> {
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-
                 children: [
                   GestureDetector(
                     onTap: (() {
@@ -133,14 +140,17 @@ class _SignupState extends State<Signup> {
                         await launch(url1);
                       });
                     }),
-                    child:const  CircleAvatar(
+                    child: const CircleAvatar(
                       backgroundColor: Colors.white,
-
-                      child: Icon(Icons.facebook,size: 50,),
+                      child: Icon(
+                        Icons.facebook,
+                        size: 50,
+                      ),
                     ),
-
                   ),
-                 const SizedBox(width: 20,),
+                  const SizedBox(
+                    width: 20,
+                  ),
                   CircleAvatar(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.white,
@@ -151,25 +161,34 @@ class _SignupState extends State<Signup> {
                       height: 100,
                     ),
                   ),
-
                 ],
               ),
             ),
-          const SizedBox(
-            height: 20,
-          ),
+            const SizedBox(
+              height: 20,
+            ),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Have an account already?",style: Theme.of(context).textTheme.headline2,),
-                  TextButton(onPressed: (){
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
+                  Text(
+                    "Have an account already?",
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
                           return MyHomePage();
                         }));
-                  }, child: Text("Sign in",style: TextStyle(color: Colors.deepOrange,fontWeight: FontWeight.bold,fontSize: 15),))
-
+                      },
+                      child: Text(
+                        "Sign in",
+                        style: TextStyle(
+                            color: Colors.deepOrange,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ))
                 ],
               ),
             )
