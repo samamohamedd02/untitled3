@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/log%20in/passrecovery.dart';
+import 'package:untitled3/log%20in/signup.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -28,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 310, 10),
+                margin: const EdgeInsets.fromLTRB(0, 10, 320, 10),
                 child: const Text(
                   "phone number",
                   style: TextStyle(fontSize: 20, color: Colors.black26),
@@ -90,16 +92,20 @@ class _MyHomePageState extends State<MyHomePage> {
                           MaterialStateProperty.all(Colors.deepOrange),
                     ),
                     onPressed: () {},
-                    child: const Text(
+                    child: Text(
                       "sign in",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: Theme.of(context).textTheme.headline1,
                     ),
                   )),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const Myhome();
+                    }));
+                  },
                   child: const Text("Recover Password",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -167,20 +173,26 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       "Haven't an account ?",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                           color: Colors.black26),
                     ),
-                    Text(
-                      "Sing up ",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.deepOrange),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const Signup();
+                        }));
+                      },
+                      child: const Text("Sign up ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.deepOrange)),
                     ),
                   ],
                 ),
