@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:story_view/story_view.dart';
+import 'package:untitled3/App%20body/search_screen.dart';
 
 class Stories extends StatelessWidget {
   const Stories({Key? key}) : super(key: key);
@@ -26,32 +28,36 @@ class Stories extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(0.0, 2.0, 0.0, 5.0),
       height: MediaQuery.of(context).size.height / 7,
       child: ListView.separated(
-        itemBuilder: (context, index) => Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 5,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.orange,
-                    radius: 38,
-                    child: CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage(storiesImages[index]),
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const StoriesView())),
+          child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.orange,
+                      radius: 38,
+                      child: CircleAvatar(
+                        radius: 35,
+                        backgroundImage: AssetImage(storiesImages[index]),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 3.0),
-                  Text(
-                    storiesTexts[index],
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 14, color: Colors.grey),
-                  ),
-                ],
+                    const SizedBox(height: 3.0),
+                    Text(
+                      storiesTexts[index],
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 14, color: Colors.grey),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         scrollDirection: Axis.horizontal,
         itemCount: storiesImages.length,
@@ -65,58 +71,49 @@ class Stories extends StatelessWidget {
   }
 }
 
-class FirstElement extends StatelessWidget {
-  const FirstElement({Key? key}) : super(key: key);
+class StoriesView extends StatelessWidget {
+  const StoriesView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: 20.0),
-      height: MediaQuery.of(context).size.height / 7,
-      decoration: BoxDecoration(
-          color: Colors.orange[600], borderRadius: BorderRadius.circular(10.0)),
-      child: Row(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width / 1.5,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/another_images/trees.png'),
-              ),
-            ),
+    var controller = StoryController();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.orange[700],
+        centerTitle: true,
+        title: const Text(
+          'Stories',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
           ),
-          SizedBox(width: MediaQuery.of(context).size.width * 0.0005),
-          Column(
-            children: [
-              const Text(
-                '50',
-                style: TextStyle(
-                    fontSize: 55,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-              const Text(
-                'Occasion',
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height / 50,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(2.0),
-                  color: Colors.white,
-                ),
-                width: MediaQuery.of(context).size.width / 5,
-                height: MediaQuery.of(context).size.height / 34,
-              ),
-            ],
-          ),
-        ],
+        ),
       ),
+      body: StoryView(
+          onComplete: () => Navigator.pop(context),
+          storyItems: [
+            StoryItem.inlineImage(
+                caption: const Text(
+                  'A blind date with books',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+                url:
+                    'https://i.pinimg.com/736x/31/db/70/31db70212a02b2835ab1f397b2b2865f.jpg',
+                controller: controller),
+            StoryItem.text(
+                backgroundColor: Colors.blueGrey,
+                title: 'This is my story',
+                textStyle:
+                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
+          ],
+          controller: controller,
+          inline: false,
+          repeat: false),
     );
   }
 }
@@ -134,13 +131,22 @@ class CustomAppBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0), color: Colors.white),
           width: MediaQuery.of(context).size.width * 0.92,
           child: TextField(
-            onTap: () {},
-            decoration: const InputDecoration(
+            onTap: () =>
+                showSearch(context: context, delegate: CustomSearchDelegate()),
+            decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'Search',
-              hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
-              prefixIcon: Icon(Icons.search, color: Colors.grey, size: 28),
-              suffixIcon: Icon(Icons.qr_code_scanner_outlined,
+              hintStyle: const TextStyle(color: Colors.grey, fontSize: 18),
+              prefixIcon: IconButton(
+                icon: const Icon(
+                  Icons.search,
+                  color: Colors.grey,
+                  size: 28,
+                ),
+                onPressed: () => showSearch(
+                    context: context, delegate: CustomSearchDelegate()),
+              ),
+              suffixIcon: const Icon(Icons.qr_code_scanner_outlined,
                   color: Colors.grey, size: 28),
             ),
           ),
@@ -150,6 +156,72 @@ class CustomAppBar extends StatelessWidget {
   }
 }
 
+class FirstElement extends StatelessWidget {
+  const FirstElement({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(right: 20.0),
+      height: MediaQuery.of(context).size.height / 7,
+      decoration: BoxDecoration(
+          color: Colors.orange[600], borderRadius: BorderRadius.circular(10.0)),
+      child: Expanded(
+        child: Row(
+          children: [
+            Expanded(
+              child: Container(
+                width: MediaQuery.of(context).size.width / 1.5,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/another_images/trees.png'),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Column(
+                children: [
+                  const Expanded(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: Text(
+                        '50',
+                        style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  const Expanded(
+                    child: Text(
+                      'Occasion',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(2.0),
+                        color: Colors.white,
+                      ),
+                      width: MediaQuery.of(context).size.width / 5,
+                      height: MediaQuery.of(context).size.height / 34,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 //Working on building Custom Animated Stories.
 //class AnimatedStories extends StatelessWidget {
 // const AnimatedStories({Key? key}) : super(key: key);
@@ -200,19 +272,26 @@ class LastElement extends StatelessWidget {
           Stack(
             alignment: Alignment.bottomLeft,
             children: [
-              Image.asset(img, width: 180, height: number == 1 ? 200 : 185),
+              SizedBox(
+                child: Image.asset(img),
+                height: MediaQuery.of(context).size.height / 4,
+                width: MediaQuery.of(context).size.width / 2,
+              ),
               number == 1
                   ? Container(
-                decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(2.0)),
-                child: const Text(
-                  ' -20%',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                width: MediaQuery.of(context).size.width / 8,
-                height: MediaQuery.of(context).size.height / 34,
-              )
+                      margin: const EdgeInsets.only(bottom: 5.0),
+                      decoration: const BoxDecoration(
+                          color: Colors.orange,
+                          borderRadius: BorderRadius.horizontal(
+                              left: Radius.circular(5.0))),
+                      child: const Text(
+                        '-20%',
+                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        textAlign: TextAlign.center,
+                      ),
+                      width: MediaQuery.of(context).size.width / 11,
+                      height: MediaQuery.of(context).size.height / 50,
+                    )
                   : Container(),
             ],
           ),
@@ -247,11 +326,11 @@ class LastElement extends StatelessWidget {
               Row(
                 children: List.generate(
                     5,
-                        (index) => Icon(
-                      Icons.star,
-                      color: Colors.orange[400],
-                      size: 20,
-                    )),
+                    (index) => Icon(
+                          Icons.star,
+                          color: Colors.orange[400],
+                          size: 18,
+                        )),
               ),
             ],
           ),
