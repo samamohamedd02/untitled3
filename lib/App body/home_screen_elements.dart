@@ -152,79 +152,47 @@ class CustomAppBar extends StatelessWidget {
 
 //Working on building Custom Animated Stories.
 //class AnimatedStories extends StatelessWidget {
- // const AnimatedStories({Key? key}) : super(key: key);
+// const AnimatedStories({Key? key}) : super(key: key);
 
-  @override
-  //Widget build(BuildContext context) {
-    //return ListView.separated(
-     //itemBuilder: (context, index) => GestureDetector(
-       // child: AnimatedDashedCircle().show(
-         // image: const AssetImage('assets/images/face.jpg'),
-          //duration: const Duration(seconds: 5),
-          //dashSize: 2,
-          //autoPlay: false,
-          //color: Colors.orange,
-          //borderWidth: 6,
-        //),
-        //onTap: () {
-          //AnimatedDashedCircle()
-            //  .playCircle(type: AnimatedionDashedCircleType.forward);
-      //  },
-      //),
-      //scrollDirection: Axis.horizontal,
-      //itemCount: 10,
-      //separatorBuilder: (BuildContext context, int index) =>
-        //  const VerticalDivider(
-        //width: 20,
-        //color: Colors.white,
-      //),
-    //);
-  //}
+// @override
+//Widget build(BuildContext context) {
+//return ListView.separated(
+//itemBuilder: (context, index) => GestureDetector(
+// child: AnimatedDashedCircle().show(
+// image: const AssetImage('assets/images/face.jpg'),
+//duration: const Duration(seconds: 5),
+//dashSize: 2,
+//autoPlay: false,
+//color: Colors.orange,
+//borderWidth: 6,
+//),
+//onTap: () {
+//AnimatedDashedCircle()
+//  .playCircle(type: AnimatedDashedCircleType.forward);
+//  },
+//),
+//scrollDirection: Axis.horizontal,
+//itemCount: 10,
+//separatorBuilder: (BuildContext context, int index) =>
+//  const VerticalDivider(
+//width: 20,
+//color: Colors.white,
+//),
+//);
+//}
 //}
 
 class LastElement extends StatelessWidget {
-  const LastElement({Key? key}) : super(key: key);
+  final String img;
+  final int number;
+  final String title;
+  final String writer;
+
+  const LastElement(this.img, this.title, this.writer, this.number, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 20.0),
-      child: SizedBox(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                buildExpanded(context, 'assets/images/another_images/book1.jpg',
-                    'Overnight in Lisbon', 'Erich Maria Remarque', 1),
-                const SizedBox(width: 5.0),
-                buildExpanded(
-                    context,
-                    'assets/images/another_images/book2.jpg',
-                    'How to win friends and influence people',
-                    'Dale Carnegie',
-                    2),
-              ],
-            ),
-            Row(
-              children: [
-                buildExpanded(
-                    context,
-                    'assets/images/another_images/book2.jpg',
-                    'How to win friends and influence people',
-                    'Dale Carnegie',
-                    2),
-                const SizedBox(width: 5.0),
-                buildExpanded(context, 'assets/images/another_images/book1.jpg',
-                    'Overnight in Lisbon', 'Erich Maria Remarque', 1),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Expanded buildExpanded(BuildContext context, img, title, writer, number) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -232,35 +200,96 @@ class LastElement extends StatelessWidget {
           Stack(
             alignment: Alignment.bottomLeft,
             children: [
-              Image.asset(img),
+              Image.asset(img, width: 180, height: number == 1 ? 200 : 185),
               number == 1
                   ? Container(
-                      decoration: BoxDecoration(
-                          color: Colors.orange,
-                          borderRadius: BorderRadius.circular(2.0)),
-                      child: const Text(
-                        ' -20%',
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                      width: MediaQuery.of(context).size.width / 8,
-                      height: MediaQuery.of(context).size.height / 34,
-                    )
+                decoration: BoxDecoration(
+                    color: Colors.orange,
+                    borderRadius: BorderRadius.circular(2.0)),
+                child: const Text(
+                  ' -20%',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+                width: MediaQuery.of(context).size.width / 8,
+                height: MediaQuery.of(context).size.height / 34,
+              )
                   : Container(),
             ],
           ),
+          const SizedBox(height: 3.0),
           Wrap(
             children: [
-              Text(
-                title,
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                writer,
-                style: const TextStyle(fontSize: 14, color: Colors.grey),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 3.0),
+                  Text(
+                    writer,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
+                  ),
+                ],
               ),
             ],
-          )
+          ),
+          const SizedBox(height: 3.0),
+          Row(
+            children: [
+              const Text(
+                '5.0',
+                style: TextStyle(color: Colors.grey),
+              ),
+              const SizedBox(width: 5.0),
+              Row(
+                children: List.generate(
+                    5,
+                        (index) => Icon(
+                      Icons.star,
+                      color: Colors.orange[400],
+                      size: 20,
+                    )),
+              ),
+            ],
+          ),
+          const SizedBox(height: 3.0),
+          Row(
+            children: const [
+              Icon(
+                Icons.card_giftcard,
+                color: Colors.grey,
+                size: 15,
+              ),
+              SizedBox(width: 5.0),
+              Text(
+                'Bonuses',
+                style: TextStyle(color: Colors.grey),
+              )
+            ],
+          ),
+          const SizedBox(height: 3.0),
+          Row(
+            children: const [
+              Text(
+                '\$10',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+              ),
+              SizedBox(width: 5.0),
+              Text(
+                '\$12',
+                style: TextStyle(
+                    decoration: TextDecoration.lineThrough, color: Colors.grey),
+              ),
+              SizedBox(width: 5.0),
+              Text(
+                'In stock',
+                style: TextStyle(color: Colors.grey),
+              )
+            ],
+          ),
         ],
       ),
     );
