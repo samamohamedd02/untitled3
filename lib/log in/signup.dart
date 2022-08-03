@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/App body/profile.dart';
 import 'package:untitled3/log%20in/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -86,12 +85,7 @@ class _SignupState extends State<Signup> {
               width: 370,
               height: 50,
               child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return const Profile();
-                    }));
-                  },
+                  onPressed: () {},
                   child: Text(
                     "Sign Up",
                     style: Theme.of(context).textTheme.headline1,

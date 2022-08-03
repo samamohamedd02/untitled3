@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:story_view/story_view.dart';
+//import 'package:story_view/story_view.dart';
 import 'package:untitled3/App%20body/search_screen.dart';
 
 class Stories extends StatelessWidget {
