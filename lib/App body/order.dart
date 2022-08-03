@@ -39,7 +39,7 @@ class _OrderState extends State<Order> {
             ],
           ),
           const SizedBox(
-            width: 150,
+            width: 80,
           ),
           const Icon(
             Icons.light,
@@ -58,6 +58,24 @@ class _OrderState extends State<Order> {
         ]),
         backgroundColor: Colors.white,
         elevation: 0,
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: const [
+              SizedBox(
+                width: 450,
+                child: Divider(
+                  color: Colors.deepOrange,
+                  height: 5,
+                  thickness: .5,
+                  indent: 0,
+                  endIndent: 0,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       bottomNavigationBar: SizedBox(
         height: MediaQuery.of(context).size.height / 10,

@@ -40,7 +40,7 @@ class _ProfileState extends State<Profile> {
             ],
           ),
           const SizedBox(
-            width: 100,
+            width: 80,
           ),
           const Icon(
             Icons.light,
@@ -185,7 +185,7 @@ class _ProfileState extends State<Profile> {
                     style: TextStyle(fontSize: 19, color: Colors.black),
                   ),
                   const SizedBox(
-                    width: 153,
+                    width: 155,
                   ),
                   GestureDetector(
                     onTap: (() {}),
@@ -217,7 +217,7 @@ class _ProfileState extends State<Profile> {
                     style: TextStyle(fontSize: 19, color: Colors.black),
                   ),
                   const SizedBox(
-                    width: 198,
+                    width: 200,
                   ),
                   GestureDetector(
                     onTap: (() {}),
@@ -249,7 +249,7 @@ class _ProfileState extends State<Profile> {
                     style: TextStyle(fontSize: 19, color: Colors.black),
                   ),
                   const SizedBox(
-                    width: 218,
+                    width: 220,
                   ),
                   GestureDetector(
                     onTap: (() {}),
@@ -264,13 +264,13 @@ class _ProfileState extends State<Profile> {
               Container(
                   margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                   child: txtField("Help")),
-              c1("Delivery", 273),
+              c1("Delivery", 275),
               c2(),
-              c1("Refund", 279),
+              c1("Refund", 281),
               c2(),
-              c1("payment", 266),
+              c1("payment", 268),
               c2(),
-              c1("Support", 272),
+              c1("Support", 274),
               Container(
                   margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                   child: txtField("")),
