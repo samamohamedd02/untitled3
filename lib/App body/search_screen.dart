@@ -22,6 +22,7 @@ class CustomSearchDelegate extends SearchDelegate {
     'Harry Potter and the Order of the Phoenix ',
     'Harry Potter and the Half-Blood Prince '
   ];
+  List history = [];
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -39,7 +40,7 @@ class CustomSearchDelegate extends SearchDelegate {
   Widget? buildLeading(BuildContext context) {
     return IconButton(
       onPressed: () {
-        close(context, null);
+        query == '' ? close(context, null) : history.add(query);
       },
       icon: Icon(query == '' ? Icons.arrow_back : Icons.search),
     );
@@ -64,7 +65,9 @@ class CustomSearchDelegate extends SearchDelegate {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  history.clear();
+                },
                 child: const Text(
                   'Clear',
                   style: TextStyle(
@@ -83,12 +86,25 @@ class CustomSearchDelegate extends SearchDelegate {
               itemCount: matchQuery.length,
               itemBuilder: (context, index) {
                 var result = matchQuery[index];
-                return ListTile(
-                  leading: const Icon(Icons.history),
-                  trailing: IconButton(
-                      icon: const Icon(Icons.close), onPressed: () {}),
-                  title: Text(result),
-                );
+                return query == ''
+                    ? ListTile(
+                        leading: const Icon(Icons.history),
+                        trailing: IconButton(
+                            icon: const Icon(Icons.close),
+                            onPressed: () {
+                              matchQuery.removeAt(index);
+                            }),
+                        title: Text(result),
+                      )
+                    : ListTile(
+                        leading: const Icon(Icons.history),
+                        trailing: IconButton(
+                            icon: const Icon(Icons.close),
+                            onPressed: () {
+                              history.removeAt(index);
+                            }),
+                        title: Text('${history[index]}'),
+                      );
               },
             ),
           ),
