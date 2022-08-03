@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/App%20body/search.dart';
 class Basket extends StatefulWidget {
   const Basket({Key? key}) : super(key: key);
 
@@ -9,6 +10,8 @@ class Basket extends StatefulWidget {
 class _BasketState extends State<Basket> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(title: Text("hi"),),
+    );
   }
 }

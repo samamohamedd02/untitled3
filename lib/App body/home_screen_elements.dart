@@ -154,7 +154,7 @@ class CustomAppBar extends StatelessWidget {
 //class AnimatedStories extends StatelessWidget {
  // const AnimatedStories({Key? key}) : super(key: key);
 
-  @override
+  //@override
   //Widget build(BuildContext context) {
     //return ListView.separated(
      //itemBuilder: (context, index) => GestureDetector(
