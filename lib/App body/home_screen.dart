@@ -57,7 +57,46 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       const SizedBox(height: 20),
-                      const LastElement(),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0,0.0,20.0,20.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                LastElement(
+                                    'assets/images/another_images/book1.jpg',
+                                    'Overnight in Lisbon',
+                                    'Erich Maria Remarque',
+                                    1),
+                                SizedBox(width: 5.0),
+                                LastElement(
+                                    'assets/images/another_images/book2.jpg',
+                                    'How to win friends and influence people',
+                                    'Dale Carnegie',
+                                    2),
+                              ],
+                            ),
+                            const SizedBox(height: 20),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                LastElement(
+                                    'assets/images/another_images/book2.jpg',
+                                    'How to win friends and influence people',
+                                    'Dale Carnegie',
+                                    2),
+                                SizedBox(width: 5.0),
+                                LastElement(
+                                    'assets/images/another_images/book1.jpg',
+                                    'Overnight in Lisbon',
+                                    'Erich Maria Remarque',
+                                    1),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),

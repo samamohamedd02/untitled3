@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:story_view/story_view.dart';
+import 'package:untitled3/App%20body/search_screen.dart';
 
 class Stories extends StatelessWidget {
   const Stories({Key? key}) : super(key: key);
@@ -26,32 +28,36 @@ class Stories extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(0.0, 2.0, 0.0, 5.0),
       height: MediaQuery.of(context).size.height / 7,
       child: ListView.separated(
-        itemBuilder: (context, index) => Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 5,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.orange,
-                    radius: 38,
-                    child: CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage(storiesImages[index]),
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const StoriesView())),
+          child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.orange,
+                      radius: 38,
+                      child: CircleAvatar(
+                        radius: 35,
+                        backgroundImage: AssetImage(storiesImages[index]),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 3.0),
-                  Text(
-                    storiesTexts[index],
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 14, color: Colors.grey),
-                  ),
-                ],
+                    const SizedBox(height: 3.0),
+                    Text(
+                      storiesTexts[index],
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 14, color: Colors.grey),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         scrollDirection: Axis.horizontal,
         itemCount: storiesImages.length,
@@ -59,6 +65,91 @@ class Stories extends StatelessWidget {
             const VerticalDivider(
           width: 10,
           color: Colors.white,
+        ),
+      ),
+    );
+  }
+}
+
+class StoriesView extends StatelessWidget {
+  const StoriesView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var controller = StoryController();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.orange[700],
+        centerTitle: true,
+        title: const Text(
+          'Stories',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      body: StoryView(
+          onComplete: () => Navigator.pop(context),
+          storyItems: [
+            StoryItem.inlineImage(
+                caption: const Text(
+                  'A blind date with books',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+                url:
+                    'https://i.pinimg.com/736x/31/db/70/31db70212a02b2835ab1f397b2b2865f.jpg',
+                controller: controller),
+            StoryItem.text(
+                backgroundColor: Colors.blueGrey,
+                title: 'This is my story',
+                textStyle:
+                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
+          ],
+          controller: controller,
+          inline: false,
+          repeat: false),
+    );
+  }
+}
+
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30.0),
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0), color: Colors.white),
+          width: MediaQuery.of(context).size.width * 0.92,
+          child: TextField(
+            onTap: () =>
+                showSearch(context: context, delegate: CustomSearchDelegate()),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: 'Search',
+              hintStyle: const TextStyle(color: Colors.grey, fontSize: 18),
+              prefixIcon: IconButton(
+                icon: const Icon(
+                  Icons.search,
+                  color: Colors.grey,
+                  size: 28,
+                ),
+                onPressed: () => showSearch(
+                    context: context, delegate: CustomSearchDelegate()),
+              ),
+              suffixIcon: const Icon(Icons.qr_code_scanner_outlined,
+                  color: Colors.grey, size: 28),
+            ),
+          ),
         ),
       ),
     );
@@ -85,8 +176,8 @@ class FirstElement extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: MediaQuery.of(context).size.width * 0.0005),
           Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
                 '50',
@@ -96,15 +187,13 @@ class FirstElement extends StatelessWidget {
                     color: Colors.white),
               ),
               const Text(
-                'Occasion',
+                'Rubles',
                 style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              Container(
-                height: MediaQuery.of(context).size.height / 50,
-              ),
+              const SizedBox(height: 10.0),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(2.0),
@@ -120,111 +209,49 @@ class FirstElement extends StatelessWidget {
     );
   }
 }
-
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30.0),
-      child: Center(
-        child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0), color: Colors.white),
-          width: MediaQuery.of(context).size.width * 0.92,
-          child: TextField(
-            onTap: () {},
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-              hintText: 'Search',
-              hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
-              prefixIcon: Icon(Icons.search, color: Colors.grey, size: 28),
-              suffixIcon: Icon(Icons.qr_code_scanner_outlined,
-                  color: Colors.grey, size: 28),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 //Working on building Custom Animated Stories.
 //class AnimatedStories extends StatelessWidget {
- // const AnimatedStories({Key? key}) : super(key: key);
+// const AnimatedStories({Key? key}) : super(key: key);
 
-  //@override
-  //Widget build(BuildContext context) {
-    //return ListView.separated(
-     //itemBuilder: (context, index) => GestureDetector(
-       // child: AnimatedDashedCircle().show(
-         // image: const AssetImage('assets/images/face.jpg'),
-          //duration: const Duration(seconds: 5),
-          //dashSize: 2,
-          //autoPlay: false,
-          //color: Colors.orange,
-          //borderWidth: 6,
-        //),
-        //onTap: () {
-          //AnimatedDashedCircle()
-            //  .playCircle(type: AnimatedionDashedCircleType.forward);
-      //  },
-      //),
-      //scrollDirection: Axis.horizontal,
-      //itemCount: 10,
-      //separatorBuilder: (BuildContext context, int index) =>
-        //  const VerticalDivider(
-        //width: 20,
-        //color: Colors.white,
-      //),
-    //);
-  //}
+// @override
+//Widget build(BuildContext context) {
+//return ListView.separated(
+//itemBuilder: (context, index) => GestureDetector(
+// child: AnimatedDashedCircle().show(
+// image: const AssetImage('assets/images/face.jpg'),
+//duration: const Duration(seconds: 5),
+//dashSize: 2,
+//autoPlay: false,
+//color: Colors.orange,
+//borderWidth: 6,
+//),
+//onTap: () {
+//AnimatedDashedCircle()
+//  .playCircle(type: AnimatedDashedCircleType.forward);
+//  },
+//),
+//scrollDirection: Axis.horizontal,
+//itemCount: 10,
+//separatorBuilder: (BuildContext context, int index) =>
+//  const VerticalDivider(
+//width: 20,
+//color: Colors.white,
+//),
+//);
+//}
 //}
 
 class LastElement extends StatelessWidget {
-  const LastElement({Key? key}) : super(key: key);
+  final String img;
+  final int number;
+  final String title;
+  final String writer;
+
+  const LastElement(this.img, this.title, this.writer, this.number, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 20.0),
-      child: SizedBox(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                buildExpanded(context, 'assets/images/another_images/book1.jpg',
-                    'Overnight in Lisbon', 'Erich Maria Remarque', 1),
-                const SizedBox(width: 5.0),
-                buildExpanded(
-                    context,
-                    'assets/images/another_images/book2.jpg',
-                    'How to win friends and influence people',
-                    'Dale Carnegie',
-                    2),
-              ],
-            ),
-            Row(
-              children: [
-                buildExpanded(
-                    context,
-                    'assets/images/another_images/book2.jpg',
-                    'How to win friends and influence people',
-                    'Dale Carnegie',
-                    2),
-                const SizedBox(width: 5.0),
-                buildExpanded(context, 'assets/images/another_images/book1.jpg',
-                    'Overnight in Lisbon', 'Erich Maria Remarque', 1),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Expanded buildExpanded(BuildContext context, img, title, writer, number) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -232,35 +259,103 @@ class LastElement extends StatelessWidget {
           Stack(
             alignment: Alignment.bottomLeft,
             children: [
-              Image.asset(img),
+              SizedBox(
+                child: Image.asset(img),
+                height: MediaQuery.of(context).size.height / 4,
+                width: MediaQuery.of(context).size.width / 2,
+              ),
               number == 1
                   ? Container(
-                      decoration: BoxDecoration(
+                      margin: const EdgeInsets.only(bottom: 5.0),
+                      decoration: const BoxDecoration(
                           color: Colors.orange,
-                          borderRadius: BorderRadius.circular(2.0)),
+                          borderRadius: BorderRadius.horizontal(
+                              left: Radius.circular(5.0))),
                       child: const Text(
-                        ' -20%',
-                        style: TextStyle(color: Colors.white, fontSize: 18),
+                        '-20%',
+                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        textAlign: TextAlign.center,
                       ),
-                      width: MediaQuery.of(context).size.width / 8,
-                      height: MediaQuery.of(context).size.height / 34,
+                      width: MediaQuery.of(context).size.width / 11,
+                      height: MediaQuery.of(context).size.height / 50,
                     )
                   : Container(),
             ],
           ),
+          const SizedBox(height: 3.0),
           Wrap(
             children: [
-              Text(
-                title,
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                writer,
-                style: const TextStyle(fontSize: 14, color: Colors.grey),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 3.0),
+                  Text(
+                    writer,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
+                  ),
+                ],
               ),
             ],
-          )
+          ),
+          const SizedBox(height: 3.0),
+          Row(
+            children: [
+              const Text(
+                '5.0',
+                style: TextStyle(color: Colors.grey),
+              ),
+              const SizedBox(width: 5.0),
+              Row(
+                children: List.generate(
+                    5,
+                    (index) => Icon(
+                          Icons.star,
+                          color: Colors.orange[400],
+                          size: 18,
+                        )),
+              ),
+            ],
+          ),
+          const SizedBox(height: 3.0),
+          Row(
+            children: const [
+              Icon(
+                Icons.card_giftcard,
+                color: Colors.grey,
+                size: 15,
+              ),
+              SizedBox(width: 5.0),
+              Text(
+                'Bonuses',
+                style: TextStyle(color: Colors.grey),
+              )
+            ],
+          ),
+          const SizedBox(height: 3.0),
+          Row(
+            children: const [
+              Text(
+                '\$10',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+              ),
+              SizedBox(width: 5.0),
+              Text(
+                '\$12',
+                style: TextStyle(
+                    decoration: TextDecoration.lineThrough, color: Colors.grey),
+              ),
+              SizedBox(width: 5.0),
+              Text(
+                'In stock',
+                style: TextStyle(color: Colors.grey),
+              )
+            ],
+          ),
         ],
       ),
     );

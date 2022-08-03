@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/log in/verifycode.dart';
 
 class Myhome extends StatefulWidget {
   const Myhome({Key? key}) : super(key: key);
@@ -13,9 +14,9 @@ class _MyhomeState extends State<Myhome> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "password                                                            ",
+          "password  Recovery                   ",
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -61,7 +62,12 @@ class _MyhomeState extends State<Myhome> {
                     backgroundColor:
                         MaterialStateProperty.all(Colors.deepOrange),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const Verify();
+                    }));
+                  },
                   child: Text(
                     "Recover password",
                     style: Theme.of(context).textTheme.headline1,

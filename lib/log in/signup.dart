@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/App body/profile.dart';
 import 'package:untitled3/log%20in/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -85,7 +86,12 @@ class _SignupState extends State<Signup> {
               width: 370,
               height: 50,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const Profile();
+                    }));
+                  },
                   child: Text(
                     "Sign Up",
                     style: Theme.of(context).textTheme.headline1,
@@ -111,7 +117,7 @@ class _SignupState extends State<Signup> {
             const SizedBox(
               height: 40,
             ),
-            Container(
+            SizedBox(
               width: 300,
               child: Row(
                 children: const [
@@ -179,10 +185,10 @@ class _SignupState extends State<Signup> {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return MyHomePage();
+                          return const MyHomePage();
                         }));
                       },
-                      child: Text(
+                      child: const Text(
                         "Sign in",
                         style: TextStyle(
                             color: Colors.deepOrange,
@@ -197,6 +203,7 @@ class _SignupState extends State<Signup> {
       ),
     );
   }
+
   Container m1Container(BuildContext context, String type) {
     return Container(
       margin: const EdgeInsets.fromLTRB(20, 0, 250, 0),
