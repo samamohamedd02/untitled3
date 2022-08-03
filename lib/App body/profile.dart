@@ -40,7 +40,7 @@ class _ProfileState extends State<Profile> {
             ],
           ),
           const SizedBox(
-            width: 80,
+            width: 50,
           ),
           const Icon(
             Icons.light,
@@ -245,7 +245,7 @@ class _ProfileState extends State<Profile> {
                     width: 12,
                   ),
                   const Text(
-                    "My Orders",
+                    "Settings",
                     style: TextStyle(fontSize: 19, color: Colors.black),
                   ),
                   const SizedBox(

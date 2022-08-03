@@ -39,7 +39,7 @@ class _OrderState extends State<Order> {
             ],
           ),
           const SizedBox(
-            width: 80,
+            width: 50,
           ),
           const Icon(
             Icons.light,
