@@ -166,58 +166,45 @@ class FirstElement extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 7,
       decoration: BoxDecoration(
           color: Colors.orange[600], borderRadius: BorderRadius.circular(10.0)),
-      child: Expanded(
-        child: Row(
-          children: [
-            Expanded(
-              child: Container(
-                width: MediaQuery.of(context).size.width / 1.5,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/another_images/trees.png'),
-                  ),
+      child: Row(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width / 1.5,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/another_images/trees.png'),
+              ),
+            ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                '50',
+                style: TextStyle(
+                    fontSize: 55,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              const Text(
+                'Rubles',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              const SizedBox(height: 10.0),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(2.0),
+                  color: Colors.white,
                 ),
+                width: MediaQuery.of(context).size.width / 5,
+                height: MediaQuery.of(context).size.height / 34,
               ),
-            ),
-            Expanded(
-              child: Column(
-                children: [
-                  const Expanded(
-                    child: FittedBox(
-                      fit: BoxFit.contain,
-                      child: Text(
-                        '50',
-                        style: TextStyle(
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  const Expanded(
-                    child: Text(
-                      'Occasion',
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(2.0),
-                        color: Colors.white,
-                      ),
-                      width: MediaQuery.of(context).size.width / 5,
-                      height: MediaQuery.of(context).size.height / 34,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
