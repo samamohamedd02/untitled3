@@ -39,7 +39,7 @@ class _OrderState extends State<Order> {
             ],
           ),
           const SizedBox(
-            width: 50,
+            width: 40,
           ),
           const Icon(
             Icons.light,
@@ -180,9 +180,9 @@ class _OrderState extends State<Order> {
   Container c5(String r, String m, String n, String b) {
     return Container(
       padding: const EdgeInsets.all(5),
-      margin: const EdgeInsets.fromLTRB(0, 0, 120, 0),
+      margin: const EdgeInsets.fromLTRB(0, 0, 140, 0),
       height: 150,
-      width: 310,
+      width: 300,
       decoration: BoxDecoration(
         color: const Color(0xFFCFC9C4),
         borderRadius: BorderRadius.circular(5),
@@ -263,7 +263,7 @@ class _OrderState extends State<Order> {
                 size: 20,
               ),
               SizedBox(
-                width: 150,
+                width: 120,
               ),
               Text(
                 "Details",
