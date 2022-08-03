@@ -64,9 +64,9 @@ class _OrderState extends State<Order> {
           child: Column(
             children: const [
               SizedBox(
-                width: 450,
+                width: 500,
                 child: Divider(
-                  color: Colors.deepOrange,
+                  color: Colors.black26,
                   height: 5,
                   thickness: .5,
                   indent: 0,
