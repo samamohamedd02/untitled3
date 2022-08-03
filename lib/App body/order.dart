@@ -79,7 +79,7 @@ class _OrderState extends State<Order> {
                   "My orders",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 23,
+                      fontSize: 20,
                       color: Colors.black),
                 ),
               ),
@@ -180,9 +180,9 @@ class _OrderState extends State<Order> {
   Container c5(String r, String m, String n, String b) {
     return Container(
       padding: const EdgeInsets.all(5),
-      margin: const EdgeInsets.fromLTRB(0, 0, 80, 0),
+      margin: const EdgeInsets.fromLTRB(0, 0, 120, 0),
       height: 150,
-      width: 370,
+      width: 310,
       decoration: BoxDecoration(
         color: const Color(0xFFCFC9C4),
         borderRadius: BorderRadius.circular(5),
@@ -263,7 +263,7 @@ class _OrderState extends State<Order> {
                 size: 20,
               ),
               SizedBox(
-                width: 200,
+                width: 150,
               ),
               Text(
                 "Details",

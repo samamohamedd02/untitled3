@@ -249,7 +249,7 @@ class _ProfileState extends State<Profile> {
                     style: TextStyle(fontSize: 19, color: Colors.black),
                   ),
                   const SizedBox(
-                    width: 220,
+                    width: 238,
                   ),
                   GestureDetector(
                     onTap: (() {}),
