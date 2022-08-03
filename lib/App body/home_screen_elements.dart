@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:story_view/story_view.dart';
+//import 'package:story_view/story_view.dart';
 import 'package:untitled3/App%20body/search_screen.dart';
 
 class Stories extends StatelessWidget {
@@ -29,8 +29,8 @@ class Stories extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 7,
       child: ListView.separated(
         itemBuilder: (context, index) => GestureDetector(
-          onTap: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const StoriesView())),
+        //  onTap: () => Navigator.push(context,
+          //    MaterialPageRoute(builder: (context) => const StoriesView())),
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
@@ -71,52 +71,54 @@ class Stories extends StatelessWidget {
   }
 }
 
-class StoriesView extends StatelessWidget {
-  const StoriesView({Key? key}) : super(key: key);
+//class StoriesView extends StatelessWidget {
+  //const StoriesView({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    var controller = StoryController();
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange[700],
-        centerTitle: true,
-        title: const Text(
-          'Stories',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-      body: StoryView(
-          onComplete: () => Navigator.pop(context),
-          storyItems: [
-            StoryItem.inlineImage(
-                caption: const Text(
-                  'A blind date with books',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-                url:
-                    'https://i.pinimg.com/736x/31/db/70/31db70212a02b2835ab1f397b2b2865f.jpg',
-                controller: controller),
-            StoryItem.text(
-                backgroundColor: Colors.blueGrey,
-                title: 'This is my story',
-                textStyle:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
-          ],
-          controller: controller,
-          inline: false,
-          repeat: false),
-    );
-  }
-}
+  //@override
+  //Widget build(BuildContext context) {
+    //var controller = StoryController();
+    //return Scaffold(
+      //appBar: AppBar(
+       // backgroundColor: Colors.orange[700],
+        //centerTitle: true,
+        //title: const Text(
+          //'Stories',
+          //style: TextStyle(
+            //color: Colors.white,
+            //fontSize: 30,
+            //fontWeight: FontWeight.bold,
+          //),
+        //),
+      //),
+      //body: StoryView(
+        //  onComplete: () => Navigator.pop(context),
+          //storyItems: [
+           // StoryItem.inlineImage(
+             //   caption: const Text(
+               //   'A blind date with books',
+                 // style: TextStyle(
+                   //   fontWeight: FontWeight.bold,
+                     // fontSize: 30,
+                      //color: Colors.white),
+                  //textAlign: TextAlign.center,
+                //),
+                //url:
+                  //  'https://i.pinimg.com/736x/31/db/70/31db70212a02b2835ab1f397b2b2865f.jpg',
+                //controller: controller),
+                //StoryItem.text(
+                //backgroundColor: Colors.blueGrey,
+                //title: 'This is my story',
+                //textStyle:
+                  //  const TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
+          //],
+          //controller: controller,
+          //inline: false,
+          //repeat: false),
+    //);
+  //}
+//}
+
+
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({Key? key}) : super(key: key);
