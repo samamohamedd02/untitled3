@@ -128,11 +128,11 @@ class _OrderState extends State<Order> {
               const SizedBox(
                 height: 20,
               ),
-              c5("1 item", " 14", ":10", "Order N 123-44-66-77"),
+              c5("1 item", "\$ 14", ":10", "Order N 123-44-66-77"),
               const SizedBox(
                 height: 20,
               ),
-              c5("3 item", "27", ":18", "Order N 111-22-88-90")
+              c5("3 item", "\$ 27", ":18", "Order N 111-22-88-90")
             ],
           ),
         ),

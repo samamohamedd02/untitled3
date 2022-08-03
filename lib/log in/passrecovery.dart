@@ -14,7 +14,7 @@ class _MyhomeState extends State<Myhome> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "password  Recovery                   ",
+          "password  recovery               ",
           style: TextStyle(
               fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
         ),
