@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'home_screen.dart';
+import 'profile.dart';
 import 'search.dart';
 
 class BotNavBar extends StatefulWidget {
@@ -24,11 +26,7 @@ class _BotNavBarState extends State<BotNavBar> {
         child: Text('favorites'),
       ),
     ),
-    const Scaffold(
-      body: Center(
-        child: Text('profile'),
-      ),
-    ),
+    const Profile(),
   ];
 
   @override

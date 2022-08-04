@@ -8,7 +8,6 @@ class Order extends StatefulWidget {
 }
 
 class _OrderState extends State<Order> {
-  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,12 +73,12 @@ class _OrderState extends State<Order> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 20, 350, 0),
+                margin: const EdgeInsets.fromLTRB(0, 20, 360, 0),
                 child: const Text(
                   "My orders",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Colors.black),
                 ),
               ),
@@ -137,50 +136,13 @@ class _OrderState extends State<Order> {
           ),
         ),
       ),
-      bottomNavigationBar: SizedBox(
-        height: MediaQuery.of(context).size.height / 10,
-        child: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (val) {
-            setState(() {
-              _currentIndex = val;
-            });
-          },
-          showUnselectedLabels: true,
-          iconSize: 28,
-          selectedItemColor: Colors.deepOrange,
-          unselectedItemColor: Colors.grey,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              label: 'Main ',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Search',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag_outlined),
-              label: 'Basket',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_border),
-              label: 'Favorites',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              label: 'Profile',
-            ),
-          ],
-        ),
-      ),
     );
   }
 
   Container c5(String r, String m, String n, String b) {
     return Container(
       padding: const EdgeInsets.all(5),
-      margin: const EdgeInsets.fromLTRB(0, 0, 140, 0),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       height: 150,
       width: 300,
       decoration: BoxDecoration(
@@ -263,7 +225,7 @@ class _OrderState extends State<Order> {
                 size: 20,
               ),
               SizedBox(
-                width: 120,
+                width: 80,
               ),
               Text(
                 "Details",
