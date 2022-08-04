@@ -59,7 +59,7 @@ class _BotNavBarState extends State<BotNavBar> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite_border),
-              label: 'Favorites',
+              label: 'Favorite',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person_outline),
