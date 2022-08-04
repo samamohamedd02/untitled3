@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
             headline1: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
-            headline2: TextStyle(fontSize: 20, color: Colors.black26)),
+            headline2: TextStyle(fontSize: 20, color: Colors.black26),
+        headline3: TextStyle(fontSize: 22,color: Colors.black,fontWeight: FontWeight.bold)),
+
       ),
       home: const MyHomePage(),
     );

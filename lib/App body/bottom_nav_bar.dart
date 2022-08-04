@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/App%20body/basket.dart';
+import 'package:untitled3/App%20body/profile.dart';
 
 import 'home_screen.dart';
 import 'profile.dart';
@@ -16,11 +18,7 @@ class _BotNavBarState extends State<BotNavBar> {
   List items = [
     const HomeScreen(),
     const Search(),
-    const Scaffold(
-      body: Center(
-        child: Text('basket'),
-      ),
-    ),
+    Basket(),
     const Scaffold(
       body: Center(
         child: Text('favorites'),

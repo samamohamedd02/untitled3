@@ -142,7 +142,7 @@ class _OrderState extends State<Order> {
   Container c5(String r, String m, String n, String b) {
     return Container(
       padding: const EdgeInsets.all(5),
-      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+      margin: const EdgeInsets.fromLTRB(0, 0, 100, 0),
       height: 150,
       width: 300,
       decoration: BoxDecoration(
