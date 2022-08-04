@@ -14,6 +14,7 @@ class CustomSearchDelegate extends SearchDelegate {
     'Harry Potter and the Half-Blood Prince '
   ];
   List history = [];
+  List listTiles = [];
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -45,6 +46,48 @@ class CustomSearchDelegate extends SearchDelegate {
         matchQuery.add(book);
       }
     }
+    return buildResultColumn(matchQuery);
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List<String> matchQuery = [];
+    for (var book in searchItems) {
+      if (book.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(book);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index) {
+        var suggestion = matchQuery[index];
+        return ListTile(
+          onTap: () {
+            query = suggestion;
+          },
+          title: Text(suggestion),
+        );
+      },
+    );
+  }
+
+  ListTile buildListTile(
+      String val, List<String> matchQuery, int index, String result) {
+    return ListTile(
+      onTap: () {
+        query = val;
+      },
+      leading: const Icon(Icons.history),
+      trailing: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () {
+            history.removeAt(index);
+          }),
+      title: Text(result),
+    );
+  }
+
+  Column buildResultColumn(List<String> matchQuery) {
     return Column(
       children: [
         Container(
@@ -74,55 +117,15 @@ class CustomSearchDelegate extends SearchDelegate {
             width: double.infinity,
             height: double.infinity,
             child: ListView.builder(
-              itemCount: matchQuery.length,
+              itemCount: history.length,
               itemBuilder: (context, index) {
-                var result = matchQuery[index];
-                return ListTile(
-                  onTap: () {
-                    query = result;
-                  },
-                  leading: const Icon(Icons.history),
-                  trailing: IconButton(
-                      icon: const Icon(Icons.close),
-                      onPressed: () {
-                        matchQuery.removeAt(index);
-                      }),
-                  title: Text(result),
-                );
+                var result = history[index];
+                return buildListTile(result, matchQuery, index, result);
               },
             ),
           ),
         ),
       ],
-    );
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    List<String> matchQuery = [];
-    for (var book in searchItems) {
-      if (book.toLowerCase().contains(query.toLowerCase())) {
-        matchQuery.add(book);
-      }
-    }
-    return ListView.builder(
-      itemCount: matchQuery.length,
-      itemBuilder: (context, index) {
-        var result = matchQuery[index];
-        var suggestion = matchQuery[index];
-        return ListTile(
-          onTap: () {
-            query = suggestion;
-          },
-          leading: const Icon(Icons.history),
-          trailing: IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: () {
-                matchQuery.removeAt(index);
-              }),
-          title: Text(result),
-        );
-      },
     );
   }
 }
