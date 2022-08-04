@@ -72,15 +72,21 @@ class _OrderState extends State<Order> {
                   endIndent: 0,
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 20, 360, 0),
-                child: const Text(
-                  "My orders",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Colors.black),
-                ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(25, 20, 0, 0),
+                    child: const Text(
+                      "My orders",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.black),
+                    ),
+                  ),
+                ],
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -139,106 +145,108 @@ class _OrderState extends State<Order> {
     );
   }
 
-  Container c5(String r, String m, String n, String b) {
-    return Container(
-      padding: const EdgeInsets.all(5),
-      margin: const EdgeInsets.fromLTRB(0, 0, 100, 0),
-      height: 150,
-      width: 300,
-      decoration: BoxDecoration(
-        color: const Color(0xFFCFC9C4),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            b,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              Text(
-                r,
-                style: const TextStyle(fontSize: 15, color: Colors.black26),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                m,
-                style: const TextStyle(fontSize: 15, color: Colors.black),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: const [
-              Text(
-                "Delivery data ",
-                style: TextStyle(fontSize: 15, color: Colors.black26),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                "Friday june 3rd",
-                style: TextStyle(fontSize: 15, color: Colors.black),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              const Text(
-                "Bonus",
-                style: TextStyle(fontSize: 15, color: Colors.black26),
-              ),
-              Text(
-                n,
-                style: const TextStyle(fontSize: 15, color: Colors.black),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: const [
-              Text(
-                "Paid for ",
-                style: TextStyle(fontSize: 15, color: Colors.black26),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Icon(
-                Icons.add_task,
-                color: Colors.green,
-                size: 20,
-              ),
-              SizedBox(
-                width: 80,
-              ),
-              Text(
-                "Details",
-                style: TextStyle(fontSize: 15, color: Colors.black),
-              ),
-              Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.black,
-                size: 18,
-              ),
-            ],
-          ),
-        ],
+  Center c5(String r, String m, String n, String b) {
+    return Center(
+      child: Container(
+        padding: const EdgeInsets.all(5),
+        margin: const EdgeInsets.fromLTRB(0, 0, 100, 0),
+        height: 150,
+        width: 300,
+        decoration: BoxDecoration(
+          color: const Color(0xFFCFC9C4),
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              b,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Text(
+                  r,
+                  style: const TextStyle(fontSize: 15, color: Colors.black26),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  m,
+                  style: const TextStyle(fontSize: 15, color: Colors.black),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: const [
+                Text(
+                  "Delivery data ",
+                  style: TextStyle(fontSize: 15, color: Colors.black26),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Friday june 3rd",
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                const Text(
+                  "Bonus",
+                  style: TextStyle(fontSize: 15, color: Colors.black26),
+                ),
+                Text(
+                  n,
+                  style: const TextStyle(fontSize: 15, color: Colors.black),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: const [
+                Text(
+                  "Paid for ",
+                  style: TextStyle(fontSize: 15, color: Colors.black26),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Icon(
+                  Icons.add_task,
+                  color: Colors.green,
+                  size: 20,
+                ),
+                SizedBox(
+                  width: 80,
+                ),
+                Text(
+                  "Details",
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black,
+                  size: 18,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
