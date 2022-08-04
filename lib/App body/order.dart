@@ -149,7 +149,7 @@ class _OrderState extends State<Order> {
     return Center(
       child: Container(
         padding: const EdgeInsets.all(5),
-        margin: const EdgeInsets.fromLTRB(0, 0, 100, 0),
+        margin: const EdgeInsets.fromLTRB(20, 0, 100, 0),
         height: 150,
         width: 300,
         decoration: BoxDecoration(
