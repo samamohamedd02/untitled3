@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
 class CustomSearchDelegate extends SearchDelegate {
   List searchItems = [
     'Books',
@@ -86,25 +77,18 @@ class CustomSearchDelegate extends SearchDelegate {
               itemCount: matchQuery.length,
               itemBuilder: (context, index) {
                 var result = matchQuery[index];
-                return query == ''
-                    ? ListTile(
-                        leading: const Icon(Icons.history),
-                        trailing: IconButton(
-                            icon: const Icon(Icons.close),
-                            onPressed: () {
-                              matchQuery.removeAt(index);
-                            }),
-                        title: Text(result),
-                      )
-                    : ListTile(
-                        leading: const Icon(Icons.history),
-                        trailing: IconButton(
-                            icon: const Icon(Icons.close),
-                            onPressed: () {
-                              history.removeAt(index);
-                            }),
-                        title: Text('${history[index]}'),
-                      );
+                return ListTile(
+                  onTap: () {
+                    query = result;
+                  },
+                  leading: const Icon(Icons.history),
+                  trailing: IconButton(
+                      icon: const Icon(Icons.close),
+                      onPressed: () {
+                        matchQuery.removeAt(index);
+                      }),
+                  title: Text(result),
+                );
               },
             ),
           ),
@@ -121,7 +105,7 @@ class CustomSearchDelegate extends SearchDelegate {
         matchQuery.add(book);
       }
     }
-    return ListView.separated(
+    return ListView.builder(
       itemCount: matchQuery.length,
       itemBuilder: (context, index) {
         var result = matchQuery[index];
@@ -130,10 +114,15 @@ class CustomSearchDelegate extends SearchDelegate {
           onTap: () {
             query = suggestion;
           },
+          leading: const Icon(Icons.history),
+          trailing: IconButton(
+              icon: const Icon(Icons.close),
+              onPressed: () {
+                matchQuery.removeAt(index);
+              }),
           title: Text(result),
         );
       },
-      separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }
 }
