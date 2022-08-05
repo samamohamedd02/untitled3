@@ -216,37 +216,7 @@ class FirstElement extends StatelessWidget {
     );
   }
 }
-//Working on building Custom Animated Stories.
-//class AnimatedStories extends StatelessWidget {
-// const AnimatedStories({Key? key}) : super(key: key);
 
-// @override
-//Widget build(BuildContext context) {
-//return ListView.separated(
-//itemBuilder: (context, index) => GestureDetector(
-// child: AnimatedDashedCircle().show(
-// image: const AssetImage('assets/images/face.jpg'),
-//duration: const Duration(seconds: 5),
-//dashSize: 2,
-//autoPlay: false,
-//color: Colors.orange,
-//borderWidth: 6,
-//),
-//onTap: () {
-//AnimatedDashedCircle()
-//  .playCircle(type: AnimatedDashedCircleType.forward);
-//  },
-//),
-//scrollDirection: Axis.horizontal,
-//itemCount: 10,
-//separatorBuilder: (BuildContext context, int index) =>
-//  const VerticalDivider(
-//width: 20,
-//color: Colors.white,
-//),
-//);
-//}
-//}
 
 class LastElement extends StatelessWidget {
   final String img;
