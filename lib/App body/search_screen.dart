@@ -14,7 +14,6 @@ class CustomSearchDelegate extends SearchDelegate {
     'Harry Potter and the Half-Blood Prince '
   ];
   List history = [];
-  List listTiles = [];
 
   @override
   List<Widget>? buildActions(BuildContext context) {

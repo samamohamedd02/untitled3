@@ -80,7 +80,7 @@ class StoriesView extends StatelessWidget {
     var controller = StoryController();
     return Scaffold(
       appBar: AppBar(
-       backgroundColor: Colors.orange[700],
+        backgroundColor: Colors.orange[700],
         centerTitle: true,
         title: const Text(
           'Stories',
@@ -92,25 +92,25 @@ class StoriesView extends StatelessWidget {
         ),
       ),
       body: StoryView(
-         onComplete: () => Navigator.pop(context),
+          onComplete: () => Navigator.pop(context),
           storyItems: [
-           StoryItem.inlineImage(
-               caption: const Text(
-                 'A blind date with books',
-                 style: TextStyle(
-                     fontWeight: FontWeight.bold,
-                     fontSize: 30,
+            StoryItem.inlineImage(
+                caption: const Text(
+                  'A blind date with books',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
                       color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
                 url:
-                   'https://i.pinimg.com/736x/31/db/70/31db70212a02b2835ab1f397b2b2865f.jpg',
+                    'https://i.pinimg.com/736x/31/db/70/31db70212a02b2835ab1f397b2b2865f.jpg',
                 controller: controller),
-                StoryItem.text(
+            StoryItem.text(
                 backgroundColor: Colors.blueGrey,
                 title: 'This is my story',
                 textStyle:
-                   const TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
+                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
           ],
           controller: controller,
           inline: false,
@@ -119,15 +119,13 @@ class StoriesView extends StatelessWidget {
   }
 }
 
-
-
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30.0),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 30),
       child: Center(
         child: Container(
           decoration: BoxDecoration(
@@ -170,33 +168,39 @@ class FirstElement extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.orange[600], borderRadius: BorderRadius.circular(10.0)),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            width: MediaQuery.of(context).size.width / 1.5,
+            width: MediaQuery.of(context).size.width * 0.6,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/another_images/trees.png'),
+                fit: BoxFit.fill,
+                image: AssetImage(
+                  'assets/images/another_images/trees.png',
+                ),
               ),
             ),
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                '50',
-                style: TextStyle(
-                    fontSize: 55,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              const FittedBox(
+                child: Text(
+                  '50',
+                  style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white),
+                ),
               ),
-              const Text(
-                'Rubles',
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              const Expanded(
+                child: Text(
+                  'Rubles',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-              const SizedBox(height: 10.0),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(2.0),
