@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/App%20body/category_elements.dart';
 import 'home_screen_elements.dart';
 
 class Search extends StatefulWidget {
@@ -9,6 +10,17 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+  List pages = [
+    const BooksSection(),
+    const ElectronicsSection(),
+    () {},
+    () {},
+    () {},
+    () {},
+    () {},
+    () {},
+    const MealSection(),
+  ];
   List<String> images = [
     'assets/images/icons_images/books.png',
     'assets/images/icons_images/tv.png',
@@ -69,7 +81,8 @@ class _SearchState extends State<Search> {
                           crossAxisCount: 3,
                         ),
                         itemBuilder: (BuildContext context, index) =>
-                            buildCustomGridView(images[index], titles[index]),
+                            buildCustomGridView(images[index], titles[index],
+                                pages[index], index),
                       ),
                       const SizedBox(height: 20),
                       Container(
@@ -180,32 +193,40 @@ class _SearchState extends State<Search> {
     );
   }
 
-  buildCustomGridView(String imgName, String title) {
-    return Card(
-      color: Colors.grey[300],
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
+  buildCustomGridView(String imgName, String title, page, int index) {
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => page,
+        ),
       ),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 15.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: Image.asset(
-                imgName,
-              ),
-            ),
-            Expanded(
-              child: Center(
-                child: Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold),
+      child: Card(
+        color: Colors.grey[300],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 15.0),
+          child: Column(
+            children: [
+              Expanded(
+                child: Image.asset(
+                  imgName,
                 ),
               ),
-            )
-          ],
+              Expanded(
+                child: Center(
+                  child: Text(
+                    title,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
