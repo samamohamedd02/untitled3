@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/App%20body/category_elements.dart';
+import 'books_page.dart';
+import 'electronics_page.dart';
 import 'home_screen_elements.dart';
+import 'meals_page.dart';
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -202,7 +204,7 @@ class _SearchState extends State<Search> {
         ),
       ),
       child: Card(
-        color: Colors.grey[300],
+        color: Colors.grey[200],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
