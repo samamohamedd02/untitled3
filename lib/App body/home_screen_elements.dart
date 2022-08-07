@@ -147,8 +147,11 @@ class CustomAppBar extends StatelessWidget {
                 onPressed: () => showSearch(
                     context: context, delegate: CustomSearchDelegate()),
               ),
-              suffixIcon: const Icon(Icons.qr_code_scanner_outlined,
-                  color: Colors.grey, size: 28),
+              suffixIcon:  IconButton(
+                onPressed: () {},
+                icon: Image.asset(
+                    'assets/images/icons_images/scan.png'),
+              ),
             ),
           ),
         ),
@@ -216,7 +219,6 @@ class FirstElement extends StatelessWidget {
     );
   }
 }
-
 
 class LastElement extends StatelessWidget {
   final String img;
@@ -330,8 +332,25 @@ class LastElement extends StatelessWidget {
               Text(
                 'In stock',
                 style: TextStyle(color: Colors.grey),
-              )
+              ),
             ],
+          ),
+          const SizedBox(height: 10.0),
+          MaterialButton(
+            padding: const EdgeInsets.all(10.0),
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            color: Colors.orange[700],
+            child: const Text(
+              'Add to cart',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
           ),
         ],
       ),

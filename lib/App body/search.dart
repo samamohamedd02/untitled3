@@ -118,7 +118,7 @@ class _SearchState extends State<Search> {
                               ),
                               width: MediaQuery.of(context).size.width * 0.45,
                               padding: const EdgeInsets.fromLTRB(
-                                  30.0, 30.0, 0.0, 0.0),
+                                  30.0, 35.0, 0.0, 0.0),
                             ),
                           ],
                         ),
@@ -197,12 +197,16 @@ class _SearchState extends State<Search> {
 
   buildCustomGridView(String imgName, String title, page, int index) {
     return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => page,
-        ),
-      ),
+      onTap: () {
+        (index == 8) || (index < 2)
+            ? Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => page,
+                ),
+              )
+            : () {};
+      },
       child: Card(
         color: Colors.grey[200],
         shape: RoundedRectangleBorder(

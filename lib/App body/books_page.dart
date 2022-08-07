@@ -63,7 +63,10 @@ class BooksSection extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () => Navigator.pop(context),
-                            icon: const Icon(Icons.arrow_back_ios,size: 20,),
+                            icon: const Icon(
+                              Icons.arrow_back_ios,
+                              size: 20,
+                            ),
                           ),
                           const Text(
                             'Books',
@@ -73,8 +76,11 @@ class BooksSection extends StatelessWidget {
                           SizedBox(
                               width: MediaQuery.of(context).size.width * 0.5),
                           IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.linear_scale_rounded)),
+                            padding: const EdgeInsets.all(5.0),
+                            onPressed: () {},
+                            icon: Image.asset(
+                                'assets/images/icons_images/hFilter.png'),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 15.0),
@@ -109,7 +115,7 @@ class BooksSection extends StatelessWidget {
                               ),
                               width: MediaQuery.of(context).size.width * 0.45,
                               padding: const EdgeInsets.fromLTRB(
-                                  30.0, 30.0, 0.0, 0.0),
+                                  30.0, 35.0, 0.0, 0.0),
                             ),
                           ],
                         ),
@@ -117,7 +123,7 @@ class BooksSection extends StatelessWidget {
                         decoration: BoxDecoration(
                             image: const DecorationImage(
                                 image: AssetImage(
-                                    'assets/images/another_images/book_library.jpg'),
+                                    'assets/images/books_images/book_library.jpg'),
                                 fit: BoxFit.fill),
                             borderRadius: BorderRadius.circular(10.0)),
                       ),
@@ -177,7 +183,3 @@ class BooksSection extends StatelessWidget {
     );
   }
 }
-
-
-
-
