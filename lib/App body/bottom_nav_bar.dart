@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled3/App%20body/basket.dart';
+import 'package:untitled3/App%20body/favourite.dart';
 import 'package:untitled3/App%20body/profile.dart';
 
 import 'home_screen.dart';
@@ -19,11 +20,7 @@ class _BotNavBarState extends State<BotNavBar> {
     const HomeScreen(),
     const Search(),
     const Basket(),
-    const Scaffold(
-      body: Center(
-        child: Text('favorites'),
-      ),
-    ),
+    const Favourite(),
     const Profile(),
   ];
 
