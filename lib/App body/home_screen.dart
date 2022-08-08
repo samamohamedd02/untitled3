@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: [
           SliverAppBar(
             // Custom App Bar.
+            automaticallyImplyLeading: false,
             expandedHeight: MediaQuery.of(context).size.height / 8,
             backgroundColor: Colors.orange[700],
             flexibleSpace: const CustomAppBar(),
@@ -58,7 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: 20),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(0.0,0.0,20.0,20.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 20.0),
                         child: Column(
                           children: [
                             Row(

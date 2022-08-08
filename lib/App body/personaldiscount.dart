@@ -110,13 +110,13 @@ class _PersonalState extends State<Personal> {
             const SizedBox(
               height: 30,
             ),
-            const Center(
+            Center(
               child: Text(
                 "Your discount is 5%",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
-                    color: Colors.deepOrange),
+                    color: Colors.orange[700]),
               ),
             ),
             const SizedBox(

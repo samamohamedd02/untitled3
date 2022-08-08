@@ -14,7 +14,7 @@ class _MyhomeState extends State<Myhome> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "password  recovery               ",
+          "Password  recovery               ",
           style: TextStyle(
               fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
         ),
@@ -23,23 +23,23 @@ class _MyhomeState extends State<Myhome> {
       ),
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Column(children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(25, 0, 0, 0),
-              child: const Text(
-                "Don't worry!It happens.Please enter the phone number associated with your account.",
-                style: TextStyle(fontSize: 17, color: Colors.black54),
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                child: const Text(
+                  "Don't worry!It happens.Please enter the phone number associated with your account.",
+                  style: TextStyle(fontSize: 17, color: Colors.black54),
+                ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 10, 310, 10),
-              child: const Text(
-                "phone number",
+              const Text(
+                "Phone number",
                 style: TextStyle(fontSize: 20, color: Colors.black26),
               ),
-            ),
-            Container(
-                margin: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                 width: 470,
                 child: TextField(
                   decoration: InputDecoration(
@@ -51,29 +51,33 @@ class _MyhomeState extends State<Myhome> {
                     hintText: "+375 29 123 45 67 ",
                   ),
                   keyboardType: TextInputType.phone,
-                )),
-            Container(
-                margin: const EdgeInsets.fromLTRB(15, 20, 0, 0),
-                color: Colors.deepOrange,
-                width: 470,
-                height: 35,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.deepOrange),
+                ),
+              ),
+              SizedBox(height: 20),
+              Center(
+                child: MaterialButton(
+                  height: MediaQuery.of(context).size.height / 13,
+                  child: const SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'Recover password',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
                   ),
+                  color: Colors.orange[700],
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
                       return const Verify();
                     }));
                   },
-                  child: Text(
-                    "Recover password",
-                    style: Theme.of(context).textTheme.headline1,
-                  ),
-                )),
-          ]),
+                ),
+              ),
+            ]),
+          ),
         ),
       ),
     );

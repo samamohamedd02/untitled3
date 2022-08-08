@@ -337,7 +337,7 @@ class LastElement extends StatelessWidget {
           ),
           const SizedBox(height: 10.0),
           MaterialButton(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(15.0),
             onPressed: () {},
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.0),

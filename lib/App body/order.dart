@@ -97,7 +97,7 @@ class _OrderState extends State<Order> {
                       margin: const EdgeInsets.fromLTRB(28, 0, 0, 0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(2.0),
-                        color: Colors.deepOrange,
+                        color: Colors.orange[700],
                       ),
                       child: Text(
                         "Active",

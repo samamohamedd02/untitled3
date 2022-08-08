@@ -53,6 +53,7 @@ class _SearchState extends State<Search> {
         slivers: [
           SliverAppBar(
             // Custom App Bar.
+            automaticallyImplyLeading: false,
             expandedHeight: MediaQuery.of(context).size.height / 8,
             backgroundColor: Colors.orange[700],
             flexibleSpace: const CustomAppBar(),
@@ -156,7 +157,7 @@ class _SearchState extends State<Search> {
                                     'Overnight in Lisbon',
                                     'Erich Maria Remarque',
                                     1),
-                                SizedBox(width: 5.0),
+                                SizedBox(width: 15.0),
                                 LastElement(
                                     'assets/images/another_images/book2.jpg',
                                     'How to win friends and influence people',
@@ -164,7 +165,7 @@ class _SearchState extends State<Search> {
                                     2),
                               ],
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 10),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: const [
@@ -173,7 +174,7 @@ class _SearchState extends State<Search> {
                                     'How to win friends and influence people',
                                     'Dale Carnegie',
                                     2),
-                                SizedBox(width: 5.0),
+                                SizedBox(width: 15.0),
                                 LastElement(
                                     'assets/images/another_images/book1.jpg',
                                     'Overnight in Lisbon',

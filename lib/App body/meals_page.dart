@@ -43,21 +43,24 @@ class MealSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(
-                            onPressed: () => Navigator.pop(context),
-                            icon: const Icon(
-                              Icons.arrow_back_ios,
-                              size: 20,
-                            ),
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () => Navigator.pop(context),
+                                icon: const Icon(
+                                  Icons.arrow_back_ios,
+                                  size: 20,
+                                ),
+                              ),
+                              const Text(
+                                'Meal',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
+                              ),
+                            ],
                           ),
-                          const Text(
-                            'Meal',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.55),
                           IconButton(
                             padding: const EdgeInsets.all(5.0),
                             onPressed: () {},
@@ -111,7 +114,7 @@ class MealSection extends StatelessWidget {
                                 fit: BoxFit.fill),
                             borderRadius: BorderRadius.circular(10.0)),
                       ),
-                      const SizedBox(height: 20.0),
+                      const SizedBox(height: 25.0),
                       GridView.builder(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
@@ -200,7 +203,7 @@ class MealSection extends StatelessWidget {
       children: [
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.4,
-          height: MediaQuery.of(context).size.height * 0.12,
+          height: 100,
           child: Card(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5.0),

@@ -14,52 +14,46 @@ class _LoginState extends State<Login> {
     super.initState();
     Future.delayed(
       const Duration(seconds: 5),
-      () {
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MyHomePage(),
-          ),
-          (route) => false,
-        );
-      },
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const MyHomePage(),
+        ),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-      ),
       body: SizedBox(
         child: Center(
-          child: Column(children: [
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Container(
               width: 100,
-              height: 100,
-              margin: const EdgeInsets.fromLTRB(0, 100, 0, 0),
+              height: MediaQuery.of(context).size.height / 9,
               decoration: BoxDecoration(
-                color: Colors.deepOrange,
-                borderRadius: BorderRadius.circular(10),
+                color: Colors.orange[700],
+                borderRadius: BorderRadius.circular(25),
               ),
               child: const Center(
-                child: Text("OZ",
-                    style: TextStyle(fontSize: 50, color: Colors.white)),
+                child: Text(
+                  "OZ",
+                  style: TextStyle(
+                      fontSize: 50,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900),
+                ),
               ),
             ),
-            Container(
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: const Text(
-                  "Shopping is a joy",
-                  style: TextStyle(fontSize: 18, color: Colors.deepOrange),
-                )),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-              child: const CircularProgressIndicator(
-                color: Colors.black,
-              ),
+            SizedBox(height: MediaQuery.of(context).size.height / 40),
+            Text(
+              "Shopping is a joy",
+              style: TextStyle(fontSize: 18, color: Colors.orange[700]),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height / 40),
+            const CircularProgressIndicator(
+              color: Colors.black,
             )
           ]),
         ),

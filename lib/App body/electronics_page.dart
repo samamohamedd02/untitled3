@@ -43,21 +43,24 @@ class ElectronicsSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(
-                            onPressed: () => Navigator.pop(context),
-                            icon: const Icon(
-                              Icons.arrow_back_ios,
-                              size: 20,
-                            ),
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () => Navigator.pop(context),
+                                icon: const Icon(
+                                  Icons.arrow_back_ios,
+                                  size: 20,
+                                ),
+                              ),
+                              const Text(
+                                'Electronics',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
+                              ),
+                            ],
                           ),
-                          const Text(
-                            'Electronics',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.4),
                           IconButton(
                             padding: const EdgeInsets.all(5.0),
                             onPressed: () {},

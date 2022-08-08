@@ -68,7 +68,7 @@ class _VerifyState extends State<Verify> {
                   ),
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(Colors.deepOrange),
+                        MaterialStateProperty.all(Colors.orange[700]),
                   )),
             )
           ],

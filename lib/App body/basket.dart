@@ -12,6 +12,7 @@ class _BasketState extends State<Basket> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(
           "Basket",
           style: TextStyle(
@@ -19,7 +20,7 @@ class _BasketState extends State<Basket> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Colors.orange[700],
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -189,7 +190,7 @@ class _BasketState extends State<Basket> {
                     ),
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(Colors.deepOrange),
+                          MaterialStateProperty.all(Colors.orange[700]),
                     )),
               ),
               const SizedBox(
