@@ -12,6 +12,7 @@ class _VerifyState extends State<Verify> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text("Verify Code",
             style: TextStyle(
                 fontSize: 30,

@@ -13,6 +13,7 @@ class _MyhomeState extends State<Myhome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(
           "Password  recovery               ",
           style: TextStyle(
