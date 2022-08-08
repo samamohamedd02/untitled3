@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled3/App body/order.dart';
+import 'package:untitled3/App body/personaldiscount.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -123,7 +124,13 @@ class _ProfileState extends State<Profile> {
                     width: 155,
                   ),
                   GestureDetector(
-                    onTap: (() {}),
+                    onTap: (() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Personal()),
+                      );
+                    }),
                     child: const Icon(
                       Icons.arrow_forward_ios,
                       size: 20,

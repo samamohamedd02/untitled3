@@ -41,6 +41,7 @@ dependencies:
   shared_preferences: ^2.0.15
   flutter_rating_bar: ^4.0.1
   story_view: ^0.13.2
+  qr_flutter: ^4.0.0
 
 dev_dependencies:
   flutter_test:
