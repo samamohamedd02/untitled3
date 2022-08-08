@@ -26,39 +26,33 @@ class _FavouriteState extends State<Favourite> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding:
-            const EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 20.0),
+            padding: const EdgeInsets.fromLTRB(15.0, 20.0, 15.0, 20.0),
             child: Column(
               children: [
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 60,
                 ),
-
                 Row(
                   children: const [
                     Text(
                       'Books',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     SizedBox(width: 15),
                   ],
                 ),
                 const SizedBox(height: 20),
                 Padding(
-                  padding:
-                  const EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 20.0),
+                  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 20.0),
                   child: Column(
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
-                          LastElement(
-                              'assets/images/another_images/book1.jpg',
-                              'Overnight in Lisbon',
-                              'Erich Maria Remarque',
-                              1),
-                          SizedBox(width: 5.0),
+                          LastElement('assets/images/another_images/book1.jpg',
+                              'Overnight in Lisbon', 'Erich Maria Remarque', 1),
+                          SizedBox(width: 25.0),
                           LastElement(
                               'assets/images/another_images/book2.jpg',
                               'How to win friends and influence people',
@@ -94,21 +88,14 @@ class _FavouriteState extends State<Favourite> {
                               2),
                         ],
                       ),
-
-
-
                     ],
                   ),
                 ),
-
-
-
               ],
             ),
           ),
         ),
       ),
-
     );
   }
 }

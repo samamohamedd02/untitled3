@@ -12,9 +12,10 @@ class _OrderState extends State<Order> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
         title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           const CircleAvatar(
-            backgroundColor: Colors.blueGrey,
+            backgroundImage: AssetImage('assets/images/profile.jpg'),
           ),
           const SizedBox(
             height: 20,
@@ -93,15 +94,15 @@ class _OrderState extends State<Order> {
                 child: Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(3),
+                      padding: const EdgeInsets.all(10),
                       margin: const EdgeInsets.fromLTRB(28, 0, 0, 0),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(2.0),
+                        borderRadius: BorderRadius.circular(8.0),
                         color: Colors.orange[700],
                       ),
-                      child: Text(
+                      child: const Text(
                         "Active",
-                        style: Theme.of(context).textTheme.headline2,
+                        style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ),
                     const SizedBox(
@@ -133,11 +134,11 @@ class _OrderState extends State<Order> {
               const SizedBox(
                 height: 20,
               ),
-              c5("1 item", "\$ 14", ":10", "Order N 123-44-66-77"),
+              c5("1 item", "\$ 14", ": 10", "Order N 123-44-66-77"),
               const SizedBox(
                 height: 20,
               ),
-              c5("3 item", "\$ 27", ":18", "Order N 111-22-88-90")
+              c5("3 item", "\$ 27", ": 18", "Order N 111-22-88-90")
             ],
           ),
         ),
@@ -148,12 +149,11 @@ class _OrderState extends State<Order> {
   Widget c5(String r, String m, String n, String b) {
     return Center(
       child: Container(
-        padding: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.symmetric(horizontal: 20),
-        height: 150,
         width: 300,
         decoration: BoxDecoration(
-          color: const Color(0xFFCFC9C4),
+          color: Colors.grey[200],
           borderRadius: BorderRadius.circular(5),
         ),
         child: Column(
@@ -205,7 +205,7 @@ class _OrderState extends State<Order> {
             Row(
               children: [
                 const Text(
-                  "Bonus",
+                  "Bonus ",
                   style: TextStyle(fontSize: 15, color: Colors.black26),
                 ),
                 Text(

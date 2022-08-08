@@ -15,49 +15,55 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          const CircleAvatar(
-            backgroundColor: Colors.blueGrey,
-          ),
-          const SizedBox(
-            height: 20,
-            width: 20,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                " Profile",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-              Text(
-                " Zakhar Palazink",
-                style: TextStyle(fontSize: 15, color: Colors.black26),
-              ),
-            ],
-          ),
-          const SizedBox(
-            width: 50,
-          ),
-          const Icon(
-            Icons.light,
-            color: Colors.black26,
-            size: 30,
-          ),
-          const SizedBox(
-            height: 20,
-            width: 20,
-          ),
-          const Icon(
-            Icons.more_vert,
-            color: Colors.black26,
-            size: 27,
-          )
-        ]),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                const CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/profile.jpg')),
+                const SizedBox(
+                  width: 20,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      " Profile",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                    Text(
+                      " Zakhar Palazink",
+                      style: TextStyle(fontSize: 15, color: Colors.black26),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              children: const [
+                Icon(
+                  Icons.light,
+                  color: Colors.black26,
+                  size: 30,
+                ),
+                SizedBox(
+                  height: 20,
+                  width: 20,
+                ),
+                Icon(
+                  Icons.more_vert,
+                  color: Colors.black26,
+                  size: 27,
+                ),
+              ],
+            ),
+          ],
+        ),
         backgroundColor: Colors.white,
         elevation: 0,
       ),

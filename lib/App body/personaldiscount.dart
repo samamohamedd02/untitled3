@@ -13,10 +13,10 @@ class _PersonalState extends State<Personal> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
         title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           const CircleAvatar(
-            backgroundColor: Colors.blueGrey,
-          ),
+              backgroundImage: AssetImage('assets/images/profile.jpg')),
           const SizedBox(
             height: 20,
             width: 20,
@@ -73,7 +73,7 @@ class _PersonalState extends State<Personal> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+              margin: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
@@ -84,7 +84,7 @@ class _PersonalState extends State<Personal> {
                     "Personal discount",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: 20,
                         color: Colors.black),
                   ),
                   SizedBox(
@@ -92,7 +92,8 @@ class _PersonalState extends State<Personal> {
                   ),
                   Text(
                     "Your 5% discount is valid in the OZ app.To use it,show the screen to the selier.",
-                    style: TextStyle(fontSize: 15, color: Colors.black26),
+                    softWrap: true,
+                    style: TextStyle(fontSize: 16, color: Colors.black26),
                   ),
                 ],
               ),
