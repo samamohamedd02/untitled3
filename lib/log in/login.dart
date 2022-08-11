@@ -4,14 +4,14 @@ import 'package:untitled3/log%20in/passrecovery.dart';
 import 'package:untitled3/log%20in/signup.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Login> createState() => _LoginState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LoginState extends State<Login> {
   bool pass = true;
   var url = "https://www.facebook.com/";
 

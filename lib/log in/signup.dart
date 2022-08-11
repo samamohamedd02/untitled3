@@ -93,7 +93,7 @@ class _SignupState extends State<Signup> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const MyHomePage()));
+                              builder: (context) => const Login()));
                     },
                     child: Text(
                       "Sign Up",
@@ -210,7 +210,7 @@ class _SignupState extends State<Signup> {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return const MyHomePage();
+                          return const Login();
                         }));
                       },
                       child: Text(

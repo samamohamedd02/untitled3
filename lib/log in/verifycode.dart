@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/Widgets/elevated_buton.dart';
 
 class Verify extends StatefulWidget {
   const Verify({Key? key}) : super(key: key);
@@ -61,16 +62,7 @@ class _VerifyState extends State<Verify> {
             Container(
               width: 370,
               height: 50,
-              child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Verify",
-                    style: Theme.of(context).textTheme.headline1,
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.orange[700]),
-                  )),
+              child: Elevatedbuton(txt: "Verify"),
             )
           ],
         ),
@@ -93,3 +85,4 @@ class _VerifyState extends State<Verify> {
     );
   }
 }
+

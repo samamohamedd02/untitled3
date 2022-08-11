@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:untitled3/log in/login.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class Splashscreen extends StatefulWidget {
+  const Splashscreen({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Splashscreen> createState() => _SplashscreenState();
 }
 
-class _LoginState extends State<Login> {
+class _SplashscreenState extends State<Splashscreen> {
   @override
   void initState() {
     super.initState();
@@ -17,7 +17,7 @@ class _LoginState extends State<Login> {
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const MyHomePage(),
+          builder: (context) => const Login(),
         ),
       ),
     );

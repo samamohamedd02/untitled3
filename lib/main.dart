@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/log%20in/Page1.dart';
+import 'package:untitled3/log%20in/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
                 color: Colors.black,
                 fontWeight: FontWeight.bold)),
       ),
-      home: const Login(),
+      home: const Splashscreen(),
+      //todo : edit page name to splash
     );
   }
 }
